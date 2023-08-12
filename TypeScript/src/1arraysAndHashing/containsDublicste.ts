@@ -19,6 +19,7 @@ time complexity--> O(n^2) --> we have to compare every elements to the rest of t
 space complexity--> O(1) --> we don't need extra memory
 `;
 
+`
 // creating a function that takes array of numbers and return boolean
 function containsDuplicate(nums: number[]): boolean {
   // creating a new set (set is a collection of unique values)
@@ -37,3 +38,48 @@ function containsDuplicate(nums: number[]): boolean {
 console.log(containsDuplicate([1, 5, 7, 8, 6]));
 console.log(containsDuplicate([1, 5, 7, 8, 6, 5, 5, 8, 6, 1, 2]));
 console.log(containsDuplicate([1, 5, 7, 8, 6, 5, 0, 1, 2]));
+`;
+// Second solution using hash set
+//  O(n) = time complexity
+//  O(n) = space complexity
+`
+function containsDuplicate(nums: number[]): boolean {
+  const numSet: Set<number> = new Set();
+
+  for (const num of nums) {
+    if (numSet.has(num)) {
+      return true;
+    }
+    numSet.add(num);
+  }
+
+  return false;
+}
+
+// Example usages
+const nums1: number[] = [1, 2, 3, 1];
+console.log(containsDuplicate(nums1)); // Output: true
+
+const nums2: number[] = [1, 2, 3, 4];
+console.log(containsDuplicate(nums2)); // Output: false
+
+const nums3: number[] = [1, 1, 1, 2, 3, 2, 4, 3, 2, 4, 1];
+console.log(containsDuplicate(nums3)); // Output: true
+`;
+
+// third solution sorting
+// o(n log n) = time complexity
+`function containsDuplicate(nums: number[]): boolean {
+  nums.sort(); // O(n log n) time complexity
+  
+  for (let i = 1; i < nums.length; i++) {
+      if (nums[i] === nums[i - 1]) {
+          return true;
+      }
+  }
+  
+  return false;
+}
+`;
+
+// forth solution
