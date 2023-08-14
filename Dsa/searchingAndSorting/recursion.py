@@ -42,3 +42,20 @@ def power(base, exponent):
 base = 2
 exponent = 4
 print(power(base, exponent))  # Output: 16 (2^4 = 2 * 2 * 2 * 2)
+
+# fourth example binary search
+def binary_search(arr, target, low, high):
+    if low > high:
+        return -1
+    
+    mid = (low + high) // 2
+    if arr[mid] == target:
+        return mid
+    elif arr[mid] < target:
+        return binary_search(arr, target, mid + 1, high)
+    else:
+        return binary_search(arr, target, low, mid - 1)
+
+sorted_array = [1, 3, 5, 7, 9, 11, 13]
+target = 7
+print(binary_search(sorted_array, target, 0, len(sorted_array) - 1))  # Output: 3 (index of 7 in the array)
