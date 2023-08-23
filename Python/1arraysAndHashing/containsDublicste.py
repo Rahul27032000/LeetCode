@@ -20,9 +20,10 @@ space complexity--> O(1) --> we don't need extra memory
 
 
 """
-
 # solved using class methods
 '''
+
+
 class Solution:
     def containsDuplicate(self, nums):
         hashset = set()
@@ -45,7 +46,9 @@ print(solution.containsDuplicate(nums2))  # Output: False
 nums3 = [1, 1, 1, 2, 3, 2, 4, 3, 2, 4, 1]
 print(solution.containsDuplicate(nums3))  # Output: True
 '''
-# solved using function method
+
+'''
+# solved using function method 1
 
 def containsDuplicate(nums):
     hashset= set()
@@ -56,8 +59,32 @@ def containsDuplicate(nums):
         hashset.add(n)
     return False
 
+print(containsDuplicate([1,5,3,4]))
+print(containsDuplicate([1,5,3,4,14,4,5,7,5,4,6]))
+print(containsDuplicate([1,1,1,1,1]))
+print(containsDuplicate([1,2,3,4,5,6]))
+
+'''
+'''
+# solved using function method 2
+
+def containsDuplicate(nums):
+    nums.sort()
+
+    for i in range(1,len(nums)):
+        if nums[i] == nums[i-1]:
+            return True
+    return False
+
+
+
 
 print(containsDuplicate([1,5,3,4]))
 print(containsDuplicate([1,5,3,4,14,4,5,7,5,4,6]))
 print(containsDuplicate([1,1,1,1,1]))
 print(containsDuplicate([1,2,3,4,5,6]))
+
+
+'''
+
+
